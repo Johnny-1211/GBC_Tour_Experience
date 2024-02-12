@@ -13,13 +13,16 @@ struct TourDetails: View {
         NavigationView {
             VStack(alignment: .leading){
                 
-                HStack {
-                    ForEach(tour.images, id: \.self) { image in
-                        Image(image)
-                            .resizable()
-                            .cornerRadius(8)
+                ScrollView(.horizontal){
+                    HStack {
+                        ForEach(tour.images, id: \.self) { image in
+                            Image(image)
+                                .resizable()
+                                .frame(width: 300, height: 300)
+                                .cornerRadius(8)
+                        }
+                        
                     }
-                    
                 }
                 
                 HStack(alignment: .top){
