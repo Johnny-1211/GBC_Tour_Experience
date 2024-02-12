@@ -18,7 +18,8 @@ struct ContentView: View {
                 ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
                     VStack{
                         NavigationLink{
-                            //destination: Detail screen
+                            
+                            TourDetails(tour: items)
                         } label: {
                             TourListView(imageName: items.imageName,
                                          tourName: items.name,

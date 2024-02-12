@@ -16,6 +16,7 @@
 		B2F074872B75C7B000A97D2A /* tour_activitiesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074862B75C7B000A97D2A /* tour_activitiesUITestsLaunchTests.swift */; };
 		B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074932B75D0BB00A97D2A /* TourData.swift */; };
 		B2F074962B75E92900A97D2A /* TourListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074952B75E92900A97D2A /* TourListView.swift */; };
+		DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5659302B7A8F450080D9F9 /* TourDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B2F074862B75C7B000A97D2A /* tour_activitiesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tour_activitiesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B2F074932B75D0BB00A97D2A /* TourData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourData.swift; sourceTree = "<group>"; };
 		B2F074952B75E92900A97D2A /* TourListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourListView.swift; sourceTree = "<group>"; };
+		DA5659302B7A8F450080D9F9 /* TourDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,6 @@
 				B2F0746D2B75C7AF00A97D2A /* Assets.xcassets */,
 				B2F074932B75D0BB00A97D2A /* TourData.swift */,
 				B2F0746F2B75C7AF00A97D2A /* Preview Content */,
-				B2F074952B75E92900A97D2A /* TourListView.swift */,
 			);
 			path = tour_activities;
 			sourceTree = "<group>";
@@ -111,7 +112,9 @@
 		B2F0746F2B75C7AF00A97D2A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				B2F074952B75E92900A97D2A /* TourListView.swift */,
 				B2F074702B75C7AF00A97D2A /* Preview Assets.xcassets */,
+				DA5659302B7A8F450080D9F9 /* TourDetails.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				B2F0746C2B75C7AD00A97D2A /* ContentView.swift in Sources */,
 				B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */,
+				DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */,
 				B2F074962B75E92900A97D2A /* TourListView.swift in Sources */,
 				B2F0746A2B75C7AD00A97D2A /* tour_activitiesApp.swift in Sources */,
 			);
