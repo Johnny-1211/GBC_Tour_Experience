@@ -21,7 +21,7 @@ struct ContentView: View {
                                 
                                 TourDetails(tour: items)
                             } label: {
-                                TourListView(imageName: items.imageName,
+                                TourListView(imageName: items.images.first!,
                                              tourName: items.name,
                                              tourprice: items.price)
                             }

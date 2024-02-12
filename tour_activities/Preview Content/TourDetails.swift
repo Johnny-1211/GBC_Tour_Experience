@@ -14,14 +14,12 @@ struct TourDetails: View {
             VStack(alignment: .leading){
                 
                 HStack {
-                    Image(tour.imageName)
-                        .resizable()
-                        .cornerRadius(8)
+                    ForEach(tour.images, id: \.self) { image in
+                        Image(image)
+                            .resizable()
+                            .cornerRadius(8)
+                    }
                     
-                    Image(tour.imageName)
-                        .resizable()
-                    
-                        .cornerRadius(8)
                 }
                 
                 HStack(alignment: .top){
@@ -51,33 +49,33 @@ struct TourDetails: View {
                 Spacer()
             }.padding()
         }
-            .navigationBarItems(trailing:
-                HStack(spacing: 16) {
-                    Button(action: {
-                        // Action for the SHARE button
-                        print("SHARE tapped")
-                    }) {
-                        HStack {
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.blue)
-                        }
-                    }
-                    
-                    Button(action: {
-                        // Action for the FAVORITE button
-                        print("FAVORITE tapped")
-                    }) {
-                        HStack {
-                            Image(systemName: "heart")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.blue)
-                        }
-                    }
+        .navigationBarItems(trailing:
+                                HStack(spacing: 16) {
+            Button(action: {
+                // Action for the SHARE button
+                print("SHARE tapped")
+            }) {
+                HStack {
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.blue)
                 }
-            )
+            }
+            
+            Button(action: {
+                // Action for the FAVORITE button
+                print("FAVORITE tapped")
+            }) {
+                HStack {
+                    Image(systemName: "heart")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.blue)
+                }
+            }
+        }
+        )
     }
 }
 
@@ -85,7 +83,7 @@ struct TourDetails: View {
     TourDetails(tour: DataContent(
         name: "Show Me The City- Toronto Walking Tour",
         price: 48,
-        imageName: "ShowMeTheCity",
+        images: ["ShowMeTheCity", "ShowMeTheCity2"],
         description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
         rating: 4,
         contact: "555-555-5555"
