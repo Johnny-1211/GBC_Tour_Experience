@@ -16,15 +16,15 @@ struct ContentView: View {
         NavigationStack{
             List{
                 ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
-                    VStack{
-                        NavigationLink{
-                            
-                            TourDetails(tour: items)
-                        } label: {
-                            TourListView(imageName: items.imageName,
-                                         tourName: items.name,
-                                         tourprice: items.price)
-                        }
+                        VStack{
+                            NavigationLink{
+                                
+                                TourDetails(tour: items)
+                            } label: {
+                                TourListView(imageName: items.imageName,
+                                             tourName: items.name,
+                                             tourprice: items.price)
+                            }
                     }
                 }
             }

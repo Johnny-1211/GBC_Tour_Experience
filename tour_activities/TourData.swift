@@ -41,14 +41,14 @@ struct TourData{
                         price: 180,
                         imageName: "Niagara",
                         description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
-                        rating: 5,
+                        rating: 2,
                         contact: "555-555-5553"
                        ),
             DataContent(name: "Kensington Market Photography Walk",
                         price: 72,
                         imageName: "Kensington",
                         description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
-                        rating: 2,
+                        rating: 3,
                         contact: "555-555-5552"
                        ),
         ]
