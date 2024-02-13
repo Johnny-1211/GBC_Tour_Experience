@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TourDetails: View {
     var tour : DataContent
+    var onAdd : () -> Void
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){
@@ -74,8 +75,7 @@ struct TourDetails: View {
             }
             
             Button(action: {
-                // Action for the FAVORITE button
-                print("FAVORITE tapped")
+                self.onAdd()
             }) {
                 HStack {
                     Image(systemName: "heart")
@@ -97,6 +97,9 @@ struct TourDetails: View {
         description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
         rating: 4,
         contact: "555-555-5555"
-    )
+    ),
+    onAdd: {
+        print("Added")
+    }
     )
 }

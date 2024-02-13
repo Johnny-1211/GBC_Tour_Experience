@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var tourList = TourData()
     @State private var updatedTourList = [DataContent]()
+    @State private var favoritesList: [String] = []
     @State private var searchTourName:String = ""
     
     var body: some View {
@@ -18,8 +19,12 @@ struct ContentView: View {
                 ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
                         VStack{
                             NavigationLink{
-                                
-                                TourDetails(tour: items)
+                                TourDetails(
+                                    tour: items,
+                                    onAdd: {
+                                        favorite(id: items.id)
+                                    }
+                                )
                             } label: {
                                 TourListView(imageName: items.images.first!,
                                              tourName: items.name,
@@ -34,6 +39,12 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         
+    }
+    
+    private func favorite(id: UUID) -> Void {
+        print("id: \(id)")
+        favoritesList.append(id.uuidString)
+        print("favoritesList: \(favoritesList)")
     }
     
     private func getTour(searchTerm: String) -> [DataContent]{
