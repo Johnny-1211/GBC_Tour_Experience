@@ -48,15 +48,22 @@ struct TourDetails: View {
                     Text("Contact").font(.title3)
                 }.padding(.top)
                 
-                Text("\(tour.contact)").font(.body).padding(.bottom)
+                
+                Link("\(tour.contact)", destination: URL(string: "tel:4374404321")!).font(.body).padding(.bottom)
+                
                 Spacer()
             }.padding()
         }
         .navigationBarItems(trailing:
                                 HStack(spacing: 16) {
             Button(action: {
-                // Action for the SHARE button
-                print("SHARE tapped")
+                let shareText = "\(tour.name) - \(tour.price)"
+                guard let data = shareText.data(using: .utf8) else {
+                    return
+                }
+                
+                let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+                UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
             }) {
                 HStack {
                     Image(systemName: "square.and.arrow.up")
