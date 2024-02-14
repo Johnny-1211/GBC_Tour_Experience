@@ -29,7 +29,7 @@ class DataContent:Identifiable, Hashable, Equatable {
         self.rating = rating
         self.contact = contact
     }
-    
+      
     func hash(into hasher: inout Hasher) {
             hasher.combine(id)
     }

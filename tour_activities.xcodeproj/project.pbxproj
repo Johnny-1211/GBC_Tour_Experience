@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B23DEAAA2B7C73130035FF36 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23DEAA92B7C73130035FF36 /* FavoriteListView.swift */; };
 		B2F0746A2B75C7AD00A97D2A /* tour_activitiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074692B75C7AD00A97D2A /* tour_activitiesApp.swift */; };
 		B2F0746C2B75C7AD00A97D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0746B2B75C7AD00A97D2A /* ContentView.swift */; };
 		B2F0746E2B75C7AF00A97D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2F0746D2B75C7AF00A97D2A /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B23DEAA92B7C73130035FF36 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		B2F074662B75C7AD00A97D2A /* tour_activities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tour_activities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F074692B75C7AD00A97D2A /* tour_activitiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tour_activitiesApp.swift; sourceTree = "<group>"; };
 		B2F0746B2B75C7AD00A97D2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				B2F0746D2B75C7AF00A97D2A /* Assets.xcassets */,
 				B2F074932B75D0BB00A97D2A /* TourData.swift */,
 				B2F0746F2B75C7AF00A97D2A /* Preview Content */,
-				B23DEAA92B7C73130035FF36 /* FavoriteListView.swift */,
 			);
 			path = tour_activities;
 			sourceTree = "<group>";
@@ -269,7 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B23DEAAA2B7C73130035FF36 /* FavoriteListView.swift in Sources */,
 				B2F0746C2B75C7AD00A97D2A /* ContentView.swift in Sources */,
 				B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */,
 				DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */,

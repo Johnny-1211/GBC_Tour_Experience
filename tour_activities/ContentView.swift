@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+   
 struct ContentView: View {
     @State private var tourList = TourData()
     @State private var updatedTourList = [DataContent]()

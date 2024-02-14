@@ -12,7 +12,7 @@ struct TourDetails: View {
     @Binding var favoritesList : Set<DataContent>
 //    var onAdd : () -> Void
     
-    
+        
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){

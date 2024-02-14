@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TourListView: View {
     let tour:DataContent
-    
+      
     var body: some View {
         HStack{
             Image(tour.images.first!)
