@@ -10,48 +10,75 @@ import SwiftUI
 struct ContentView: View {
     @State private var tourList = TourData()
     @State private var updatedTourList = [DataContent]()
-    @State private var favoritesList: [String] = []
     @State private var searchTourName:String = ""
+    @State private var favoritesList : Set<DataContent> = []
+    @State private var showFavorite : Bool = false
     
+
     var body: some View {
         NavigationStack{
-            List{
-                ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
-                        VStack{
-                            NavigationLink{
-                                TourDetails(
-                                    tour: items,
-                                    onAdd: {
-                                        favorite(id: items.id)
-                                    }
-                                )
-                            } label: {
-                                TourListView(imageName: items.images.first!,
-                                             tourName: items.name,
-                                             tourprice: items.price)
+            Toggle(isOn: $showFavorite, label: {
+                Text("Show Favorites")
+            })
+            .padding(.horizontal)
+            
+            if showFavorite{
+                if !favoritesList.isEmpty{
+                    List{
+                        ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
+                            VStack{
+                                TourListView(tour: items)
                             }
+                        }
+                        .onDelete(perform: deleteItems)
+                        .navigationTitle("Things to do in Toronto")
+                        .navigationBarTitleDisplayMode(.inline)
+                    }
+                    .searchable(text: self.$searchTourName,
+                                prompt: "Enter tour name to search")
+
+                }else{
+                    VStack{
+                        Spacer()
+                        Text("Not yet add any favorite tour.")
+                        Spacer()
+                    }
+                    .navigationTitle("Things to do in Toronto")
+                    .navigationBarTitleDisplayMode(.inline)
+                    Spacer()
+                }
+            }else{
+                List{
+                    ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
+                            VStack{
+                                NavigationLink{
+                                    TourDetails(tour: items,
+                                                favoritesList: $favoritesList
+                                    )
+                                } label: {
+                                    TourListView(tour: items)
+                                }
+                                .navigationTitle("Things to do in Toronto")
+                                .navigationBarTitleDisplayMode(.inline)
+                                
+                        }
                     }
                 }
+                .searchable(text: self.$searchTourName,
+                            prompt: "Enter tour name to search")
             }
-            .searchable(text: self.$searchTourName,
-                        prompt: "Enter tour name to search")
-            .navigationTitle("Things to do in Toronto")
-            .navigationBarTitleDisplayMode(.inline)
+
+
+            
         }
         
     }
     
-    private func favorite(id: UUID) -> Void {
-        print("id: \(id)")
-        favoritesList.append(id.uuidString)
-        print("favoritesList: \(favoritesList)")
-    }
-    
     private func getTour(searchTerm: String) -> [DataContent]{
-        if (searchTerm.isEmpty) {
+        if (searchTerm.isEmpty && !showFavorite) {
             return self.tourList.data
         }
-        else{
+        else if (!searchTerm.isEmpty && !showFavorite){
             var resultList : [DataContent] = []
             
             for item in self.tourList.data{
@@ -60,9 +87,27 @@ struct ContentView: View {
                 }
             }
             return resultList
+        }else if (!searchTerm.isEmpty && showFavorite){
+            var resultFavoriteList : [DataContent] = []
+            
+            for item in self.favoritesList{
+                if (item.name.contains(searchTerm)){
+                    resultFavoriteList.append(item)
+                }
+            }
+            return resultFavoriteList
+        }else{
+            return Array(favoritesList)
         }
     }
     
+    private func deleteItems(at offsets: IndexSet) {
+        let indicesToDelete = Array(offsets)
+        for index in indicesToDelete {
+            let item = favoritesList[favoritesList.index(favoritesList.startIndex, offsetBy: index)]
+            favoritesList.remove(item)
+        }
+    }
 }
 
 #Preview {

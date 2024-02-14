@@ -1,25 +1,42 @@
+////
+////  TourData.swift
+////  tour_activities
+////
+////  Created by Johnny Tam on 8/2/2024.
+////
 //
-//  TourData.swift
-//  tour_activities
-//
-//  Created by Johnny Tam on 8/2/2024.
-//
-
 import Foundation
-
-
-struct DataContent:Identifiable , Hashable {
-    let id:UUID = UUID()
+//
+//
+class DataContent:Identifiable, Hashable, Equatable {
+    static func == (lhs: DataContent, rhs: DataContent) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let name:String
     let price:Double
     let images: [String]
     let description: String
     let rating: Int
     let contact: String
+    var isFavorite:Bool = false
+    
+    init(name: String, price: Double, images: [String], description: String, rating: Int, contact: String) {
+        self.name = name
+        self.price = price
+        self.images = images
+        self.description = description
+        self.rating = rating
+        self.contact = contact
+    }
+    
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+    }
 }
 
-struct TourData{
-    var data:[DataContent]
+class TourData : ObservableObject{
+    @Published var data:[DataContent]
     
     init(){
         self.data = [

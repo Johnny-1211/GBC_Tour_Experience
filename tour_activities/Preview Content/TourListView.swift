@@ -9,26 +9,26 @@ import Foundation
 import SwiftUI
 
 struct TourListView: View {
-    let imageName:String
-    let tourName:String
-    let tourprice:Double
+    let tour:DataContent
+    
     var body: some View {
         HStack{
-            Image(imageName)
+            Image(tour.images.first!)
                 .resizable()
                 .frame(width: 80,height: 80)
                 .cornerRadius(8)
             VStack(alignment: .leading){
-                Text(tourName)
+                Text(tour.name)
                     .font(.title3)
                     .bold()
                     .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                Text("Price: $\(String(tourprice))/ person")
+                Text("Price: $\(String(tour.price))/ person")
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
-                    
             }
+            Spacer()
+            Image(systemName: tour.isFavorite ? "heart.fill" : "heart")
         }
     }
 }

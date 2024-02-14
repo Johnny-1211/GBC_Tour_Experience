@@ -9,7 +9,10 @@ import SwiftUI
 
 struct TourDetails: View {
     var tour : DataContent
-    var onAdd : () -> Void
+    @Binding var favoritesList : Set<DataContent>
+//    var onAdd : () -> Void
+    
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){
@@ -75,31 +78,35 @@ struct TourDetails: View {
             }
             
             Button(action: {
-                self.onAdd()
+                //                self.onAdd()
+//                if self.favoritesList.favorites.contains(tour){
+//                    self.favoritesList.removeFavorite(tour)
+//                }else{
+//                    self.favoritesList.addFavorite(tour)
+//                }
+                tour.isFavorite = true
+                favoritesList.insert(tour)
+                
             }) {
                 HStack {
-                    Image(systemName: "heart")
+                    Image(systemName: tour.isFavorite ? "heart.fill" : "heart")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(.blue)
                 }
             }
-        }
-        )
+        })
     }
+
 }
 
-#Preview {
-    TourDetails(tour: DataContent(
-        name: "Show Me The City- Toronto Walking Tour",
-        price: 48,
-        images: ["ShowMeTheCity", "ShowMeTheCity2"],
-        description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
-        rating: 4,
-        contact: "555-555-5555"
-    ),
-    onAdd: {
-        print("Added")
-    }
-    )
-}
+//#Preview {
+//    TourDetails(tour: DataContent(
+//        name: "Show Me The City- Toronto Walking Tour",
+//        price: 48,
+//        images: ["ShowMeTheCity", "ShowMeTheCity2"],
+//        description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
+//        rating: 4,
+//        contact: "555-555-5555")
+//    )
+//}

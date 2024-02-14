@@ -8,6 +8,7 @@
 import Foundation
 
 
-class Favorite: ObservableObject {
-    @Published var favoritesList : [DataContent] = []
+class FavoriteList: ObservableObject {
+    @Published var favorites : [DataContent] = []
+    
 }
