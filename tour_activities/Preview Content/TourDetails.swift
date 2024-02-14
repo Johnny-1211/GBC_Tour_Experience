@@ -10,9 +10,11 @@ import SwiftUI
 struct TourDetails: View {
     var tour : DataContent
     @Binding var favoritesList : Set<DataContent>
-//    var onAdd : () -> Void
+    @State private var showAlert = false
     
-        
+    //    var onAdd : () -> Void
+    
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){
@@ -57,7 +59,11 @@ struct TourDetails: View {
                 
                 Spacer()
             }.padding()
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Success"), message: Text("\(tour.isFavorite ? "Added to" : "Removed from") Favorites"), dismissButton: .default(Text("OK")))
+                }
         }
+        
         .navigationBarItems(trailing:
                                 HStack(spacing: 16) {
             Button(action: {
@@ -78,14 +84,14 @@ struct TourDetails: View {
             }
             
             Button(action: {
-                //                self.onAdd()
-//                if self.favoritesList.favorites.contains(tour){
-//                    self.favoritesList.removeFavorite(tour)
-//                }else{
-//                    self.favoritesList.addFavorite(tour)
-//                }
-                tour.isFavorite = true
-                favoritesList.insert(tour)
+                if (tour.isFavorite) {
+                    tour.isFavorite = false
+                    favoritesList.remove(tour)
+                } else {
+                    tour.isFavorite = true
+                    favoritesList.insert(tour)
+                }
+                showAlert = true
                 
             }) {
                 HStack {
@@ -94,10 +100,12 @@ struct TourDetails: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(.blue)
                 }
+                
             }
-        })
+        }
+        )
     }
-
+    
 }
 
 //#Preview {

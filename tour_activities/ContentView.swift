@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-   
+
 struct ContentView: View {
     @State private var tourList = TourData()
     @State private var updatedTourList = [DataContent]()
@@ -14,20 +14,36 @@ struct ContentView: View {
     @State private var favoritesList : Set<DataContent> = []
     @State private var showFavorite : Bool = false
     
-
+    
     var body: some View {
         NavigationStack{
             Toggle(isOn: $showFavorite, label: {
-                Text("Show Favorites")
+                Text("Show Favorites (\(favoritesList.count))")
             })
             .padding(.horizontal)
             
             if showFavorite{
                 if !favoritesList.isEmpty{
+                    VStack {
+                        
+                        HStack {
+                          
+                            Button("Clear all") {
+                                favoritesList.removeAll()
+                            }.padding(.horizontal)
+                            Spacer()
+                        }
+                    }
                     List{
                         ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
                             VStack{
-                                TourListView(tour: items)
+                                NavigationLink{
+                                    TourDetails(tour: items,
+                                                favoritesList: $favoritesList
+                                    )
+                                } label: {
+                                    TourListView(tour: items)
+                                }
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -36,7 +52,7 @@ struct ContentView: View {
                     }
                     .searchable(text: self.$searchTourName,
                                 prompt: "Enter tour name to search")
-
+                    
                 }else{
                     VStack{
                         Spacer()
@@ -50,25 +66,25 @@ struct ContentView: View {
             }else{
                 List{
                     ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
-                            VStack{
-                                NavigationLink{
-                                    TourDetails(tour: items,
-                                                favoritesList: $favoritesList
-                                    )
-                                } label: {
-                                    TourListView(tour: items)
-                                }
-                                .navigationTitle("Things to do in Toronto")
-                                .navigationBarTitleDisplayMode(.inline)
-                                
+                        VStack{
+                            NavigationLink{
+                                TourDetails(tour: items,
+                                            favoritesList: $favoritesList
+                                )
+                            } label: {
+                                TourListView(tour: items)
+                            }
+                            .navigationTitle("Things to do in Toronto")
+                            .navigationBarTitleDisplayMode(.inline)
+                            
                         }
                     }
                 }
                 .searchable(text: self.$searchTourName,
                             prompt: "Enter tour name to search")
             }
-
-
+            
+            
             
         }
         
