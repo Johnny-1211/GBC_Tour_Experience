@@ -42,7 +42,7 @@ struct ContentView: View {
                                                 favoritesList: $favoritesList
                                     )
                                 } label: {
-                                    TourListView(tour: items)
+                                    TourListView(tour: items,  favoritesList: $favoritesList)
                                 }
                             }
                         }
@@ -72,7 +72,7 @@ struct ContentView: View {
                                             favoritesList: $favoritesList
                                 )
                             } label: {
-                                TourListView(tour: items)
+                                TourListView(tour: items,  favoritesList: $favoritesList)
                             }
                             .navigationTitle("Things to do in Toronto")
                             .navigationBarTitleDisplayMode(.inline)

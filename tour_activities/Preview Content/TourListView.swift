@@ -10,7 +10,8 @@ import SwiftUI
 
 struct TourListView: View {
     let tour:DataContent
-      
+    @Binding var favoritesList : Set<DataContent>
+
     var body: some View {
         HStack{
             Image(tour.images.first!)
@@ -28,7 +29,7 @@ struct TourListView: View {
                     .foregroundColor(.gray)
             }
             Spacer()
-            Image(systemName: tour.isFavorite ? "heart.fill" : "heart")
+            Image(systemName: favoritesList.contains { $0.id == tour.id && $0.isFavorite == tour.isFavorite } ? "heart.fill" : "heart")
         }
     }
 }

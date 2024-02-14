@@ -95,7 +95,7 @@ struct TourDetails: View {
                 
             }) {
                 HStack {
-                    Image(systemName: tour.isFavorite ? "heart.fill" : "heart")
+                    Image(systemName: favoritesList.contains { $0.id == tour.id && $0.isFavorite == tour.isFavorite } ? "heart.fill" : "heart")
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(.blue)
