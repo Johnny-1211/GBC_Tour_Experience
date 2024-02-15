@@ -36,8 +36,7 @@ struct ContentView: View {
                                                 viewModel: viewModel
                                     ).environmentObject(currentUser)
                                 } label: {
-                                    TourListView(tour: items,
-                                                 favoritesList: $currentUser.favoriteTourList)
+                                    TourListView(tour: items).environmentObject(currentUser)
                                 }
                             }
                         }
@@ -65,8 +64,7 @@ struct ContentView: View {
                                             viewModel: viewModel
                                 ).environmentObject(currentUser)
                             } label: {
-                                TourListView(tour: items,
-                                             favoritesList: $currentUser.favoriteTourList)
+                                TourListView(tour: items).environmentObject(currentUser)
                             }
                             .navigationTitle("Things to do in Toronto")
                             .navigationBarTitleDisplayMode(.inline)
@@ -114,10 +112,9 @@ struct ContentView: View {
     
     private func deleteItems(at offsets: IndexSet) {
         let indicesToDelete = Array(offsets)
-        var userFavList = currentUser.favoriteTourList
         for index in indicesToDelete {
-            let item = userFavList[userFavList.index(userFavList.startIndex, offsetBy: index)]
-            userFavList.remove(item)
+            let item = currentUser.favoriteTourList[currentUser.favoriteTourList.index(currentUser.favoriteTourList.startIndex, offsetBy: index)]
+            currentUser.favoriteTourList.remove(item)
         }
     }
     
