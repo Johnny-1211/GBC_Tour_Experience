@@ -26,6 +26,7 @@
 		B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074932B75D0BB00A97D2A /* TourData.swift */; };
 		B2F074962B75E92900A97D2A /* TourListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074952B75E92900A97D2A /* TourListView.swift */; };
 		DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5659302B7A8F450080D9F9 /* TourDetails.swift */; };
+		DA96B2CA2B7E73F600DAE665 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA96B2C92B7E73F600DAE665 /* StarView.swift */; };
 		DAFF02022B7D9F4000116636 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF02012B7D9F4000116636 /* ViewModel.swift */; };
 		DAFF02042B7DA69F00116636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF02032B7DA69F00116636 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		B2F074932B75D0BB00A97D2A /* TourData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourData.swift; sourceTree = "<group>"; };
 		B2F074952B75E92900A97D2A /* TourListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourListView.swift; sourceTree = "<group>"; };
 		DA5659302B7A8F450080D9F9 /* TourDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetails.swift; sourceTree = "<group>"; };
+		DA96B2C92B7E73F600DAE665 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		DAFF02012B7D9F4000116636 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		DAFF02032B7DA69F00116636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 				B22C2A4D2B7DDAC400FEDA7B /* LoginView.swift */,
 				B22C2A522B7DFA2100FEDA7B /* EmptyFavoriteListVew.swift */,
 				B22C2A5A2B7DFD9400FEDA7B /* ImageScrollView.swift */,
+				DA96B2C92B7E73F600DAE665 /* StarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2F0746C2B75C7AD00A97D2A /* ContentView.swift in Sources */,
+				DA96B2CA2B7E73F600DAE665 /* StarView.swift in Sources */,
 				B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */,
 				DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */,
 				B2F074962B75E92900A97D2A /* TourListView.swift in Sources */,

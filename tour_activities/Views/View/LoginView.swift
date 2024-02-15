@@ -13,17 +13,17 @@ struct LoginView: View {
     @Binding var rememberMe:Bool
     @Binding var isLoggedIn:Bool
     @Binding var users: [User]
-    @Binding var currentUser:User
+    @EnvironmentObject var currentUser:User
     
     var body: some View {
         NavigationStack{
             VStack {
                 Spacer()
                 
-                Image(systemName: "globe")
+                Image("appstore")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 200, height: 200)
                     .padding(.bottom, 40)
                 
                 VStack(spacing: 15) {
@@ -74,7 +74,8 @@ struct LoginView: View {
     private func validateLogin() -> Bool {
         for user in users {
             if user.email == email && user.password == password {
-                currentUser = user
+                currentUser.email = user.email
+                currentUser.password = user.password
                 email = ""
                 password = ""
                 return true

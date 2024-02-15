@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-class User:Identifiable{
+class User:Identifiable, ObservableObject {
 
     let id: UUID = UUID()
-    let email: String
-    let password: String
-    var favoriteTourList:Set<DataContent> = []
+    @Published var email: String
+    @Published var password: String
+    @Published var favoriteTourList:Set<DataContent> = []
     
     init(email: String, password: String) {
         self.email = email

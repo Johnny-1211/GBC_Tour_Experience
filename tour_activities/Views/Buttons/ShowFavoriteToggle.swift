@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShowFavoriteToggle: View {
     @Binding var showFavorite:Bool
-    @Binding var currentUser:User
+    @EnvironmentObject var currentUser:User
     
     var body: some View {
         Toggle(isOn: $showFavorite, label: {

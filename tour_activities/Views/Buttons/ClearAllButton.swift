@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ClearAllButton: View {
-    @Binding var currentUser:User
+    @EnvironmentObject var currentUser:User
     
     var body: some View {
         VStack {

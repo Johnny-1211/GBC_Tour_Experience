@@ -12,33 +12,29 @@ struct ContentView: View {
     @State private var updatedTourList = [DataContent]()
     @State private var searchTourName:String = ""
     
-//    @State private var favoritesList : Set<DataContent> = []
-    
     @State private var showFavorite : Bool = false
     @ObservedObject var viewModel: ViewModel
     
     @Binding var users:[User]
     @Binding var isLoggedIn:Bool
-    @Binding var currentUser: User
+    @EnvironmentObject var currentUser: User
     
     var body: some View {
         NavigationStack{
-            ShowFavoriteToggle(showFavorite: $showFavorite,
-                           currentUser: $currentUser)
+            ShowFavoriteToggle(showFavorite: $showFavorite).environmentObject(currentUser)
             
             if showFavorite{ // Press toggle button
                 if !currentUser.favoriteTourList.isEmpty{
                     
-                    ClearAllButton(currentUser: $currentUser)
+                    ClearAllButton().environmentObject(currentUser)
                     
                     List{
                         ForEach(self.getTour(searchTerm: self.searchTourName)) { items in
                             VStack{
                                 NavigationLink{
                                     TourDetails(tour: items,
-                                                currentUser: $currentUser,
                                                 viewModel: viewModel
-                                    )
+                                    ).environmentObject(currentUser)
                                 } label: {
                                     TourListView(tour: items,
                                                  favoritesList: $currentUser.favoriteTourList)
@@ -66,9 +62,8 @@ struct ContentView: View {
                         VStack{
                             NavigationLink{
                                 TourDetails(tour: items,
-                                            currentUser: $currentUser,
                                             viewModel: viewModel
-                                )
+                                ).environmentObject(currentUser)
                             } label: {
                                 TourListView(tour: items,
                                              favoritesList: $currentUser.favoriteTourList)
@@ -144,7 +139,7 @@ struct ContentView_Previews: PreviewProvider {
             User(email: "user2@example.com", password: "password2")
         ]
         @State var isLoggedIn = false
-        @State var currentUser = User(email: "user1@example.com", password: "password1")
-        return ContentView( viewModel: viewModel, users: $users, isLoggedIn: $isLoggedIn, currentUser: $currentUser)
+        @ObservedObject var currentUser = User(email: "user1@example.com", password: "password1")
+        return ContentView( viewModel: viewModel, users: $users, isLoggedIn: $isLoggedIn).environmentObject(currentUser)
     }
 }

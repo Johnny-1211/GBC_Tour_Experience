@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SaveFavoriteButton: View {
-    @Binding var currentUser:User
+    @EnvironmentObject var currentUser:User
     @Binding var showAlert :Bool
     var tour : DataContent
 

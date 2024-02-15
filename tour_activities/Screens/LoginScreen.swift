@@ -13,19 +13,19 @@ struct LoginScreen: View {
             User(email: "user2@example.com", password: "password2")
         ]
     
-    @State var currentUser:User = User(email: "", password: "")
+    @ObservedObject var currentUser:User = User(email: "", password: "")
         
     var body: some View {
         NavigationView {
             if isLoggedIn {
-                ContentView(viewModel: ViewModel(), users: $users, isLoggedIn: $isLoggedIn, currentUser: $currentUser)
+                ContentView(viewModel: ViewModel(), users: $users, isLoggedIn: $isLoggedIn).environmentObject(currentUser)
             } else {
                 LoginView(email: $email,
                           password: $password,
                           rememberMe: $rememberMe,
                           isLoggedIn: $isLoggedIn,
-                          users: $users, 
-                          currentUser: $currentUser)
+                          users: $users
+                ).environmentObject(currentUser)
             }
         }
     }

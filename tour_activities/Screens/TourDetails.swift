@@ -9,8 +9,7 @@ import SwiftUI
 
 struct TourDetails: View {
     var tour : DataContent
-//    @Binding var favoritesList : Set<DataContent>
-    @Binding var currentUser : User
+    @EnvironmentObject var currentUser : User
     @State private var showAlert = false
     @ObservedObject var viewModel: ViewModel
 
@@ -30,10 +29,7 @@ struct TourDetails: View {
                 HStack(spacing: 10) {
                     ForEach(1...5, id: \.self) { index in
                         let starType = index > tour.rating ? "star" : "star.fill"
-                        Image(systemName: starType)
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.yellow)
+                        StarView(starType: starType)
                     }
                     Text("(\(tour.rating))")
                 }
@@ -44,7 +40,6 @@ struct TourDetails: View {
                     Text("Contact").font(.title3)
                 }.padding(.top)
                 
-                //                Link("\(tour.contact)", destination: URL(string: "tel:\(tour.contact)")!)
                 Button("\(tour.contact)") {
                     viewModel.callNumber(phoneNumber: tour.contact)
                 }.font(.body).padding(.bottom)
@@ -69,8 +64,7 @@ struct TourDetails: View {
                 )
             )
             
-            SaveFavoriteButton(currentUser: $currentUser,
-                               showAlert: $showAlert, tour: tour)
+            SaveFavoriteButton(showAlert: $showAlert, tour: tour).environmentObject(currentUser)
             }
         )
     }
