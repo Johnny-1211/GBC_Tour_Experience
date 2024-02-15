@@ -85,6 +85,7 @@ struct LoginView: View {
             if user.email == email && user.password == password {
                 currentUser.email = user.email
                 currentUser.password = user.password
+                currentUser.favoriteTourList = user.favoriteTourList
                 email = ""
                 password = ""
                 return true
