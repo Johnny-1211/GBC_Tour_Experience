@@ -6,7 +6,7 @@ import SwiftUI
 struct TourListView: View {
     let tour:DataContent
     @EnvironmentObject var currentUser : User
-
+    
     var body: some View {
         HStack{
             Image(tour.images.first!)
@@ -23,8 +23,9 @@ struct TourListView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
             }
-            Spacer()
-            Image(systemName: currentUser.favoriteTourList.contains { $0.id == tour.id && $0.isFavorite == tour.isFavorite } ? "heart.fill" : "heart")
+//            Spacer()
+//            Text("\(current)")
+//            Image(systemName: currentUser.favoriteTourList.contains { $0.id == tour.id && $0.isFavorite == tour.isFavorite } ? "heart.fill" : "heart")
         }
     }
 }

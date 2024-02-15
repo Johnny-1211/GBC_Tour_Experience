@@ -13,7 +13,12 @@ struct ShowFavoriteToggle: View {
     
     var body: some View {
         Toggle(isOn: $showFavorite, label: {
-            Text("Show Favorites (\(currentUser.favoriteTourList.count))")
+            HStack {
+                Text("Show Favorites")
+                Image(systemName: "star.fill").foregroundColor(.yellow)
+                Text("(\(currentUser.favoriteTourList.count))")
+            }
+        
         })
         .padding(.horizontal)
     }

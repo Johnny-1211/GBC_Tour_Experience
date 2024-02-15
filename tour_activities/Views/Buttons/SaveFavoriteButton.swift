@@ -15,18 +15,18 @@ struct SaveFavoriteButton: View {
     
     var body: some View {
         Button(action: {
-            if (tour.isFavorite) {
-                tour.isFavorite = false
-                currentUser.favoriteTourList.remove(tour)
-            } else {
+//            if (tour.isFavorite) {
+//                tour.isFavorite = false
+//                currentUser.favoriteTourList.remove(tour)
+//            } else {
                 tour.isFavorite = true
                 currentUser.favoriteTourList.insert(tour)
-            }
+//            }
             showAlert = true
             
         }) {
             HStack {
-                Image(systemName: currentUser.favoriteTourList.contains { $0.id == tour.id && $0.isFavorite == tour.isFavorite } ? "heart.fill" : "heart")
+                Image(systemName: "star")
                     .resizable()
                     .frame(width: 20, height: 20)
                     .foregroundColor(.blue)
