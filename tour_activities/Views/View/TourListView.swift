@@ -1,9 +1,4 @@
-//
-//  TourListView.swift
-//  tour_activities
-//
-//  Created by Johnny Tam on 9/2/2024.
-//
+
 
 import Foundation
 import SwiftUI

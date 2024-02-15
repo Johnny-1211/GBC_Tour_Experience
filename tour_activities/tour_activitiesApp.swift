@@ -13,8 +13,8 @@ struct tour_activitiesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let viewModel = ViewModel() // Create an instance of ViewModel
-            ContentView(viewModel: viewModel)
+//            let viewModel = ViewModel() // Create an instance of ViewModel
+            LoginScreen()
         }
     }
 }

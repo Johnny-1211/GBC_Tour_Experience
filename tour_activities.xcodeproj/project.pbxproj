@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B22C2A462B7DD40200FEDA7B /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A452B7DD40200FEDA7B /* LoginScreen.swift */; };
+		B22C2A492B7DD5DC00FEDA7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A482B7DD5DC00FEDA7B /* User.swift */; };
+		B22C2A4E2B7DDAC400FEDA7B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A4D2B7DDAC400FEDA7B /* LoginView.swift */; };
+		B22C2A512B7DF79000FEDA7B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A502B7DF79000FEDA7B /* LogoutButton.swift */; };
+		B22C2A532B7DFA2100FEDA7B /* EmptyFavoriteListVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A522B7DFA2100FEDA7B /* EmptyFavoriteListVew.swift */; };
+		B22C2A552B7DFB5900FEDA7B /* ClearAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A542B7DFB5900FEDA7B /* ClearAllButton.swift */; };
+		B22C2A572B7DFBB100FEDA7B /* ShowFavoriteToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A562B7DFBB100FEDA7B /* ShowFavoriteToggle.swift */; };
+		B22C2A592B7DFCEE00FEDA7B /* SaveFavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A582B7DFCEE00FEDA7B /* SaveFavoriteButton.swift */; };
+		B22C2A5B2B7DFD9400FEDA7B /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22C2A5A2B7DFD9400FEDA7B /* ImageScrollView.swift */; };
 		B2F0746A2B75C7AD00A97D2A /* tour_activitiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074692B75C7AD00A97D2A /* tour_activitiesApp.swift */; };
 		B2F0746C2B75C7AD00A97D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F0746B2B75C7AD00A97D2A /* ContentView.swift */; };
 		B2F0746E2B75C7AF00A97D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2F0746D2B75C7AF00A97D2A /* Assets.xcassets */; };
@@ -41,6 +49,14 @@
 
 /* Begin PBXFileReference section */
 		B22C2A452B7DD40200FEDA7B /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		B22C2A482B7DD5DC00FEDA7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B22C2A4D2B7DDAC400FEDA7B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B22C2A502B7DF79000FEDA7B /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
+		B22C2A522B7DFA2100FEDA7B /* EmptyFavoriteListVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFavoriteListVew.swift; sourceTree = "<group>"; };
+		B22C2A542B7DFB5900FEDA7B /* ClearAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllButton.swift; sourceTree = "<group>"; };
+		B22C2A562B7DFBB100FEDA7B /* ShowFavoriteToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFavoriteToggle.swift; sourceTree = "<group>"; };
+		B22C2A582B7DFCEE00FEDA7B /* SaveFavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteButton.swift; sourceTree = "<group>"; };
+		B22C2A5A2B7DFD9400FEDA7B /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		B2F074662B75C7AD00A97D2A /* tour_activities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tour_activities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F074692B75C7AD00A97D2A /* tour_activitiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tour_activitiesApp.swift; sourceTree = "<group>"; };
 		B2F0746B2B75C7AD00A97D2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +99,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B22C2A472B7DD59100FEDA7B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B2F074932B75D0BB00A97D2A /* TourData.swift */,
+				B22C2A482B7DD5DC00FEDA7B /* User.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B22C2A4A2B7DDA7800FEDA7B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B2F0746B2B75C7AD00A97D2A /* ContentView.swift */,
+				DA5659302B7A8F450080D9F9 /* TourDetails.swift */,
+				B22C2A452B7DD40200FEDA7B /* LoginScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B22C2A4B2B7DDA9200FEDA7B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B22C2A4F2B7DF76E00FEDA7B /* Buttons */,
+				B22C2A4C2B7DDAA800FEDA7B /* View */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B22C2A4C2B7DDAA800FEDA7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B2F074952B75E92900A97D2A /* TourListView.swift */,
+				B22C2A4D2B7DDAC400FEDA7B /* LoginView.swift */,
+				B22C2A522B7DFA2100FEDA7B /* EmptyFavoriteListVew.swift */,
+				B22C2A5A2B7DFD9400FEDA7B /* ImageScrollView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B22C2A4F2B7DF76E00FEDA7B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B22C2A502B7DF79000FEDA7B /* LogoutButton.swift */,
+				B22C2A542B7DFB5900FEDA7B /* ClearAllButton.swift */,
+				B22C2A562B7DFBB100FEDA7B /* ShowFavoriteToggle.swift */,
+				B22C2A582B7DFCEE00FEDA7B /* SaveFavoriteButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		B2F0745D2B75C7AD00A97D2A = {
 			isa = PBXGroup;
 			children = (
@@ -108,12 +174,12 @@
 		B2F074682B75C7AD00A97D2A /* tour_activities */ = {
 			isa = PBXGroup;
 			children = (
+				B22C2A4B2B7DDA9200FEDA7B /* Views */,
+				B22C2A4A2B7DDA7800FEDA7B /* Screens */,
+				B22C2A472B7DD59100FEDA7B /* model */,
 				B2F074692B75C7AD00A97D2A /* tour_activitiesApp.swift */,
-				B2F0746B2B75C7AD00A97D2A /* ContentView.swift */,
 				B2F0746D2B75C7AF00A97D2A /* Assets.xcassets */,
-				B2F074932B75D0BB00A97D2A /* TourData.swift */,
 				B2F0746F2B75C7AF00A97D2A /* Preview Content */,
-				B22C2A452B7DD40200FEDA7B /* LoginScreen.swift */,
 			);
 			path = tour_activities;
 			sourceTree = "<group>";
@@ -121,9 +187,7 @@
 		B2F0746F2B75C7AF00A97D2A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				B2F074952B75E92900A97D2A /* TourListView.swift */,
 				B2F074702B75C7AF00A97D2A /* Preview Assets.xcassets */,
-				DA5659302B7A8F450080D9F9 /* TourDetails.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -280,8 +344,16 @@
 				DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */,
 				B2F074962B75E92900A97D2A /* TourListView.swift in Sources */,
 				DAFF02042B7DA69F00116636 /* AppDelegate.swift in Sources */,
+				B22C2A492B7DD5DC00FEDA7B /* User.swift in Sources */,
 				B22C2A462B7DD40200FEDA7B /* LoginScreen.swift in Sources */,
+				B22C2A572B7DFBB100FEDA7B /* ShowFavoriteToggle.swift in Sources */,
+				B22C2A592B7DFCEE00FEDA7B /* SaveFavoriteButton.swift in Sources */,
+				B22C2A552B7DFB5900FEDA7B /* ClearAllButton.swift in Sources */,
 				DAFF02022B7D9F4000116636 /* ViewModel.swift in Sources */,
+				B22C2A512B7DF79000FEDA7B /* LogoutButton.swift in Sources */,
+				B22C2A4E2B7DDAC400FEDA7B /* LoginView.swift in Sources */,
+				B22C2A5B2B7DFD9400FEDA7B /* ImageScrollView.swift in Sources */,
+				B22C2A532B7DFA2100FEDA7B /* EmptyFavoriteListVew.swift in Sources */,
 				B2F0746A2B75C7AD00A97D2A /* tour_activitiesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

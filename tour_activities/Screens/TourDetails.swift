@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TourDetails: View {
     var tour : DataContent
-    @Binding var favoritesList : Set<DataContent>
+//    @Binding var favoritesList : Set<DataContent>
+    @Binding var currentUser : User
     @State private var showAlert = false
     @ObservedObject var viewModel: ViewModel
 
@@ -18,17 +19,7 @@ struct TourDetails: View {
         NavigationView {
             VStack(alignment: .leading){
                 
-                ScrollView(.horizontal){
-                    HStack {
-                        ForEach(tour.images, id: \.self) { image in
-                            Image(image)
-                                .resizable()
-                                .frame(width: 300, height: 300)
-                                .cornerRadius(8)
-                        }
-                        
-                    }
-                }
+                ImageScrollView(tour: tour)
                 
                 HStack(alignment: .top){
                     Text("\(tour.name)").font(.title2).bold()
@@ -53,7 +44,7 @@ struct TourDetails: View {
                     Text("Contact").font(.title3)
                 }.padding(.top)
                 
-//                Link("\(tour.contact)", destination: URL(string: "tel:\(tour.contact)")!)
+                //                Link("\(tour.contact)", destination: URL(string: "tel:\(tour.contact)")!)
                 Button("\(tour.contact)") {
                     viewModel.callNumber(phoneNumber: tour.contact)
                 }.font(.body).padding(.bottom)
@@ -66,10 +57,10 @@ struct TourDetails: View {
         
         .navigationBarItems(trailing:
                                 HStack(spacing: 16) {
-     
+            
             let dynamicValue = tour.id
             let deepLinkURL = URL(string: "gbc_tour//\(dynamicValue)")!
-
+            
             ShareLink(
                 item: deepLinkURL,
                 preview: SharePreview(
@@ -77,31 +68,12 @@ struct TourDetails: View {
                     image: Image("AppIcon")
                 )
             )
-    
             
-            Button(action: {
-                if (tour.isFavorite) {
-                    tour.isFavorite = false
-                    favoritesList.remove(tour)
-                } else {
-                    tour.isFavorite = true
-                    favoritesList.insert(tour)
-                }
-                showAlert = true
-                
-            }) {
-                HStack {
-                    Image(systemName: favoritesList.contains { $0.id == tour.id && $0.isFavorite == tour.isFavorite } ? "heart.fill" : "heart")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.blue)
-                }
-                
+            SaveFavoriteButton(currentUser: $currentUser,
+                               showAlert: $showAlert, tour: tour)
             }
-        }
         )
     }
-    
 }
 
 //#Preview {
