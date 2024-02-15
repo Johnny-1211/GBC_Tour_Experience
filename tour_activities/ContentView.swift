@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var searchTourName:String = ""
     @State private var favoritesList : Set<DataContent> = []
     @State private var showFavorite : Bool = false
-    
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationStack{
@@ -39,7 +39,8 @@ struct ContentView: View {
                             VStack{
                                 NavigationLink{
                                     TourDetails(tour: items,
-                                                favoritesList: $favoritesList
+                                                favoritesList: $favoritesList,
+                                                viewModel: viewModel
                                     )
                                 } label: {
                                     TourListView(tour: items,  favoritesList: $favoritesList)
@@ -69,7 +70,8 @@ struct ContentView: View {
                         VStack{
                             NavigationLink{
                                 TourDetails(tour: items,
-                                            favoritesList: $favoritesList
+                                            favoritesList: $favoritesList,
+                                            viewModel: viewModel
                                 )
                             } label: {
                                 TourListView(tour: items,  favoritesList: $favoritesList)
@@ -126,8 +128,10 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = ViewModel()
+        return ContentView(viewModel: viewModel)
+    }
 }
-
-

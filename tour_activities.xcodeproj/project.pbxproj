@@ -17,6 +17,8 @@
 		B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074932B75D0BB00A97D2A /* TourData.swift */; };
 		B2F074962B75E92900A97D2A /* TourListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F074952B75E92900A97D2A /* TourListView.swift */; };
 		DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5659302B7A8F450080D9F9 /* TourDetails.swift */; };
+		DAFF02022B7D9F4000116636 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF02012B7D9F4000116636 /* ViewModel.swift */; };
+		DAFF02042B7DA69F00116636 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF02032B7DA69F00116636 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		B2F074932B75D0BB00A97D2A /* TourData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourData.swift; sourceTree = "<group>"; };
 		B2F074952B75E92900A97D2A /* TourListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourListView.swift; sourceTree = "<group>"; };
 		DA5659302B7A8F450080D9F9 /* TourDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetails.swift; sourceTree = "<group>"; };
+		DAFF02012B7D9F4000116636 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		DAFF02032B7DA69F00116636 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 		B2F0745D2B75C7AD00A97D2A = {
 			isa = PBXGroup;
 			children = (
+				DAFF02032B7DA69F00116636 /* AppDelegate.swift */,
+				DAFF02012B7D9F4000116636 /* ViewModel.swift */,
 				B2F074682B75C7AD00A97D2A /* tour_activities */,
 				B2F074792B75C7B000A97D2A /* tour_activitiesTests */,
 				B2F074832B75C7B000A97D2A /* tour_activitiesUITests */,
@@ -270,6 +276,8 @@
 				B2F074942B75D0BB00A97D2A /* TourData.swift in Sources */,
 				DA5659312B7A8F450080D9F9 /* TourDetails.swift in Sources */,
 				B2F074962B75E92900A97D2A /* TourListView.swift in Sources */,
+				DAFF02042B7DA69F00116636 /* AppDelegate.swift in Sources */,
+				DAFF02022B7D9F4000116636 /* ViewModel.swift in Sources */,
 				B2F0746A2B75C7AD00A97D2A /* tour_activitiesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +442,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tour_activities/Preview Content\"";
+				DEVELOPMENT_TEAM = 8VK6TW62A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -462,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tour_activities/Preview Content\"";
+				DEVELOPMENT_TEAM = 8VK6TW62A3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

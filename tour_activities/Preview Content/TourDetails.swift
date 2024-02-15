@@ -11,10 +11,9 @@ struct TourDetails: View {
     var tour : DataContent
     @Binding var favoritesList : Set<DataContent>
     @State private var showAlert = false
-    
-    //    var onAdd : () -> Void
-    
-    
+    @ObservedObject var viewModel: ViewModel
+
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading){
@@ -54,9 +53,10 @@ struct TourDetails: View {
                     Text("Contact").font(.title3)
                 }.padding(.top)
                 
-                
-                Link("\(tour.contact)", destination: URL(string: "tel:4374404321")!).font(.body).padding(.bottom)
-                
+//                Link("\(tour.contact)", destination: URL(string: "tel:\(tour.contact)")!)
+                Button("\(tour.contact)") {
+                    viewModel.callNumber(phoneNumber: tour.contact)
+                }.font(.body).padding(.bottom)
                 Spacer()
             }.padding()
                 .alert(isPresented: $showAlert) {
@@ -66,22 +66,18 @@ struct TourDetails: View {
         
         .navigationBarItems(trailing:
                                 HStack(spacing: 16) {
-            Button(action: {
-                let shareText = "\(tour.name) - \(tour.price)"
-                guard let data = shareText.data(using: .utf8) else {
-                    return
-                }
-                
-                let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-                UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
-            }) {
-                HStack {
-                    Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.blue)
-                }
-            }
+     
+            let dynamicValue = tour.id
+            let deepLinkURL = URL(string: "gbc_tour//\(dynamicValue)")!
+
+            ShareLink(
+                item: deepLinkURL,
+                preview: SharePreview(
+                    "\(tour.name) - $\(String(format: "%.2f", tour.price))",
+                    image: Image("AppIcon")
+                )
+            )
+    
             
             Button(action: {
                 if (tour.isFavorite) {

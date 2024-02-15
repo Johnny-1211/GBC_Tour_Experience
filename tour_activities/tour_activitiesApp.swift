@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct tour_activitiesApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate // or SceneDelegate
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel = ViewModel() // Create an instance of ViewModel
+            ContentView(viewModel: viewModel)
         }
     }
 }

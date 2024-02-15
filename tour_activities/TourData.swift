@@ -45,7 +45,7 @@ class TourData : ObservableObject{
                         images: ["ShowMeTheCity", "ShowMeTheCity2"],
                         description: "On this tour, you'll take a canoe trip to the waterfront of our city and watch the sun set over the city skyline. Basic canoeing instruction provided at the start of the tour. Canoe rental and lifejackets are included in the price.",
                         rating: 4,
-                        contact: "555-555-5555"
+                        contact: "437-440-4321"
                        ),
             DataContent(name: "Toronto R&B Sounds Intimate Concerts",
                         price: 48,
