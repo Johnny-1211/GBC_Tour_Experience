@@ -87,37 +87,8 @@ struct LoginView: View {
     private func rememberUser() {
         UserDefaults.standard.set(email, forKey: "rememberedEmail")
         UserDefaults.standard.set(password, forKey: "rememberedPassword")
+        UserDefaults.standard.set(isLoggedIn, forKey: "isLoggedIn")
     }
     
-    // Automatic login if rememberMe is enabled and valid credentials are found
-    private func autoLogin() {
-        if let rememberedEmail = UserDefaults.standard.string(forKey: "rememberedEmail"),
-           let rememberedPassword = UserDefaults.standard.string(forKey: "rememberedPassword") {
-            for user in users {
-                if user.email == rememberedEmail && user.password == rememberedPassword {
-                    isLoggedIn = true
-                    email = rememberedEmail
-                    password = rememberedPassword
-                    break
-                }
-            }
-        }
-    }
 }
 
-
-//#Preview {
-//    @State var email : String = "user1@gmail.com"
-//    @State var password :String = "password1"
-//    @State var rememberMe:Bool = false
-//    @State var isLoggedIn:Bool = false
-//    @State var users: [User] = [
-//        User(email: "user1@example.com", password: "password1"),
-//        User(email: "user2@example.com", password: "password2")
-//    ]
-//    return LoginView(email: $email,
-//              password: $password,
-//              rememberMe: $rememberMe,
-//              isLoggedIn: $isLoggedIn,
-//              users: $users)
-//}

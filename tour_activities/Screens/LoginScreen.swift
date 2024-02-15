@@ -29,5 +29,5 @@ struct LoginScreen: View {
             }
         }
     }
-    
+
 }
