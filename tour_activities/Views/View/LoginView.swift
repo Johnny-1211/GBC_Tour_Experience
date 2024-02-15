@@ -13,7 +13,10 @@ struct LoginView: View {
     @Binding var rememberMe:Bool
     @Binding var isLoggedIn:Bool
     @Binding var users: [User]
+    @State var showAlert: Bool = false
+    @State var errorMessage: String = ""
     @EnvironmentObject var currentUser:User
+    
     
     var body: some View {
         NavigationStack{
@@ -54,6 +57,9 @@ struct LoginView: View {
                         // Show an alert for invalid credentials
                         // Implement your own error handling logic
                         print("Invalid credentials")
+                        showAlert = true
+                        errorMessage = "Invalid credentials"
+                        
                     }
                 } label: {
                     Text("LOGIN")
@@ -69,6 +75,9 @@ struct LoginView: View {
             }
             .navigationTitle("Login")
             .navigationBarHidden(true)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Error"), message: Text("\(errorMessage)"), dismissButton: .default(Text("OK")))
+            }
         }
     }
     private func validateLogin() -> Bool {

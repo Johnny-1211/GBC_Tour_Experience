@@ -36,8 +36,12 @@ struct TourDetails: View {
                 
                 Text("Description").font(.title3).fontWeight(.medium).padding(.top)
                 Text("\(tour.description)").font(.body)
+                
+                Text("Hosted by").font(.title3).fontWeight(.medium).padding(.top)
+                Text("\(tour.host)").font(.body)
+                
                 HStack {
-                    Text("Contact").font(.title3)
+                    Text("Contact").font(.title3).fontWeight(.medium)
                 }.padding(.top)
                 
                 Button("\(tour.contact)") {

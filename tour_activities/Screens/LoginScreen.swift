@@ -11,7 +11,7 @@ struct LoginScreen: View {
     @State var users: [User] = [
         User(email: "user1@example.com", password: "password1"),
             User(email: "user2@example.com", password: "password2"),
-        User(email: "a", password: "a")
+            User(email: "a", password: "a")
         ]
     
     @ObservedObject var currentUser:User = User(email: "", password: "")
